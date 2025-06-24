@@ -1,0 +1,24 @@
+<form [formGroup]="categoriaForm" class="row" (ngSubmit)="categoriaForm.value.id ? callUpdate() : callSave()">
+  <div>
+    <h2 class="mb-0">
+      {{ categoriaForm.value.id ? 'Editar Categoría' : 'Agregar Categoría' }}
+    </h2>
+  </div>
+  <div class="mb-2">
+    <label class="mb-1" for="nombre">Nombre*</label>
+    <input id="nombre" formControlName="nombre" type="text" class="form-control">
+    <p class="text-danger my-1"
+       *ngIf="categoriaForm.controls['nombre'].invalid && (categoriaForm.controls['nombre'].dirty || categoriaForm.controls['nombre'].touched)">
+      El nombre es requerido
+    </p>
+  </div>
+  <div class="mb-2">
+    <label class="mb-1" for="descripcion">Descripción</label>
+    <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+  </div>
+  <div class="d-flex justify-content-end">
+    <button [disabled]="categoriaForm.invalid" class="btn btn-primary" type="submit">
+      {{ categoriaForm.value.id ? 'Actualizar' : 'Guardar' }}
+    </button>
+  </div>
+</form>

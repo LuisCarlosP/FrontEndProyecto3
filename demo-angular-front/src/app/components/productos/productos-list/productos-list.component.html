@@ -6,7 +6,9 @@
       <th>Descripción</th>
       <th>Precio</th>
       <th>Cantidad en stock</th>
-      <th>Acciones</th>
+      @if (isSuperAdmin) {
+        <th>Acciones</th>
+      }
     </tr>
   </thead>
   <tbody>
@@ -18,8 +20,14 @@
         <td>{{item.precio}}</td>
         <td>{{item.cantidadStock}}</td>
         <td>
-          <button (click)="callModalAction.emit(item)" class="btn btn-warning me-2" type="button"><i class="fas fa-pen"></i></button>
-          <button (click)="callDeleteAction.emit(item)" class="btn btn-danger" type="button"><i class="fas fa-trash"></i></button>
+          @if (isSuperAdmin) {
+            <button (click)="callModalAction.emit(item)" class="btn btn-warning me-2" type="button">
+              <i class="fas fa-pen"></i>
+            </button>
+            <button (click)="callDeleteAction.emit(item)" class="btn btn-danger" type="button">
+              <i class="fas fa-trash"></i>
+            </button>
+          }
         </td>
       </tr>
     } @empty {

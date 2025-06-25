@@ -128,3 +128,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+# angular
+.angular/
+.angular/cache/
+dist/
+node_modules/
+

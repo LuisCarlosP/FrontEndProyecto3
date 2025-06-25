@@ -8,6 +8,8 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
 import { ModalComponent } from '../../components/modal/modal.component';
 import { LoaderComponent } from '../../components/loader/loader.component';
 import { ICategoria } from '../../interfaces';
+import { AuthService } from '../../services/auth.service';
+import { IRoleType } from '../../interfaces';
 
 @Component({
   selector: 'app-categorias',
@@ -25,9 +27,11 @@ import { ICategoria } from '../../interfaces';
 export class CategoriaComponent implements OnInit {
   public modalService: ModalService = inject(ModalService);
   public categoriaService: CategoriaService = inject(CategoriaService);
-  @ViewChild('addCategoria') public addCategoria: any;
   public fb: FormBuilder = inject(FormBuilder);
+  public authService: AuthService = inject(AuthService);
 
+  @ViewChild('addCategoria') public addCategoria: any;
+  isSuperAdmin = computed(() => this.authService.hasRole(IRoleType.superAdmin));
   categorias = computed(() => this.categoriaService.categorias$());
 
   categoriaForm = this.fb.group({

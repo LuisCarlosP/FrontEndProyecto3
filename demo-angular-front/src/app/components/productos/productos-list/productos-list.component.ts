@@ -10,6 +10,7 @@ import { IProducto } from '../../../interfaces';
 })
 export class ProductosListComponent {
   @Input() productos: IProducto[] = [];
+  @Input() isSuperAdmin: boolean = false;
   @Output() callModalAction = new EventEmitter<IProducto>();
   @Output() callDeleteAction = new EventEmitter<IProducto>();
 }

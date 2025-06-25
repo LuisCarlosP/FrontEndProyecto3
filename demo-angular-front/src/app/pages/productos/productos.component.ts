@@ -9,6 +9,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { IProducto } from '../../interfaces';
 import { ProductosService } from '../../services/productos.service';
 import { CategoriaService} from '../../services/categoria.service';
+import { AuthService } from '../../services/auth.service';
+import { IRoleType } from '../../interfaces';
+
 
 
 @Component({
@@ -28,9 +31,12 @@ export class ProductosComponent implements OnInit {
   public modalService: ModalService = inject(ModalService);
   public productosService: ProductosService = inject(ProductosService);
   public categoriaService: CategoriaService = inject(CategoriaService);
-  @ViewChild('addProductos') public addProductos: any;
   public fb: FormBuilder = inject(FormBuilder);
+  public authService: AuthService = inject(AuthService);
 
+  @ViewChild('addProductos') public addProductos: any;
+
+  isSuperAdmin = computed(() => this.authService.hasRole(IRoleType.superAdmin));
   productos = computed(() => this.productosService.productos$());
   categorias = computed(() => this.categoriaService.categorias$());
 

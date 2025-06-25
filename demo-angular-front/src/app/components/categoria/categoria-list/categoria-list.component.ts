@@ -11,6 +11,7 @@ import { ICategoria } from '../../../interfaces';
 })
 export class CategoriaListComponent {
   @Input() categorias: ICategoria[] = [];
+  @Input() isSuperAdmin: boolean = false; 
   @Output() callModalAction = new EventEmitter<ICategoria>();
   @Output() callDeleteAction = new EventEmitter<ICategoria>();
 }

@@ -6,9 +6,12 @@ import { UsersComponent } from './pages/users/users.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AccessDeniedComponent } from './pages/access-denied/access-denied.component';
 import { AdminRoleGuard } from './guards/admin-role.guard';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { GamesComponent } from './pages/games/games.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { CategoriaComponent } from './pages/categorias/categoria.component';
 
@@ -56,6 +59,19 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'dashboard',
+        component: DashboardComponent,
+        data: { 
+          authorities: [
+            IRoleType.admin, 
+            IRoleType.superAdmin,
+            IRoleType.user
+          ],
+          name: 'Dashboard',
+          showInSidebar: true
+        }
+      },
+      {
         path: 'profile',
         component: ProfileComponent,
         data: { 
@@ -66,6 +82,32 @@ export const routes: Routes = [
           ],
           name: 'profile',
           showInSidebar: false
+        }
+      },
+      {
+        path: 'games',
+        component: GamesComponent,
+        data: { 
+          authorities: [
+            IRoleType.admin, 
+            IRoleType.superAdmin,
+            IRoleType.user,
+          ],
+          name: 'games',
+          showInSidebar: true
+        }
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent,
+        data: { 
+          authorities: [
+            IRoleType.admin, 
+            IRoleType.superAdmin,
+            IRoleType.user,
+          ],
+          name: 'orders',
+          showInSidebar: true
         }
       },
       {

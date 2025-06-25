@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ICategoria } from '../../../services/categoria.service';
+import { CommonModule } from '@angular/common';
+import { ICategoria } from '../../../interfaces';
 
 @Component({
   selector: 'app-categoria-list',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './categoria-list.component.html',
   styleUrl: './categoria-list.component.scss'
 })

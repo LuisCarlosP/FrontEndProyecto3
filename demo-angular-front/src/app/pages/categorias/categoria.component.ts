@@ -1,12 +1,13 @@
 import { Component, inject, ViewChild, OnInit, computed } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ModalService } from '../../services/modal.service';
-import { CategoriaService, ICategoria } from '../../services/categoria.service';
+import { CategoriaService } from '../../services/categoria.service';
 import { CategoriaListComponent } from '../../components/categoria/categoria-list/categoria-list.component';
 import { CategoriaFormComponent } from '../../components/categoria/categoria-form/categoria-form.component';
 import { PaginationComponent } from '../../components/pagination/pagination.component';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { LoaderComponent } from '../../components/loader/loader.component';
+import { ICategoria } from '../../interfaces';
 
 @Component({
   selector: 'app-categorias',

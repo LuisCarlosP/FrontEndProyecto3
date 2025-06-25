@@ -82,3 +82,12 @@ export interface IProducto {
   categoria: string;
   id?: number;
 }
+
+export interface ICategoria {
+  id?: number;
+  nombre: string;
+  descripcion?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  productos?: IProducto[];
+}

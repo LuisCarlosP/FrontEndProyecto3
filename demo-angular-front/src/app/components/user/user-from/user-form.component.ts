@@ -36,4 +36,16 @@ export class UserFormComponent {
       this.callSaveMethod.emit(order);
     }
   }
+
+  callUpdate() {
+    let order: IUser = {
+      id: this.userForm.controls['id'].value,
+      email: this.userForm.controls['email'].value,
+      name: this.userForm.controls['name'].value,
+      lastname: this.userForm.controls['lastname'].value,
+      password: this.userForm.controls['password'].value,
+      updatedAt: this.userForm.controls['updatedAt'].value,
+    }
+    this.callUpdateMethod.emit(order);
+  }
 }

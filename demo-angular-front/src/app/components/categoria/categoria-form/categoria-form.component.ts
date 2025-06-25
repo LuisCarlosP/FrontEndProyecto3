@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ICategoria } from '../../../services/categoria.service';
+import { ICategoria } from '../../../interfaces'; 
 
 @Component({
   selector: 'app-categoria-form',

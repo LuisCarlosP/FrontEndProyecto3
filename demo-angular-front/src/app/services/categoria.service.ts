@@ -4,13 +4,7 @@ import { ISearch } from '../interfaces';
 import { AuthService } from './auth.service';
 import { AlertService } from './alert.service';
 
-export interface ICategoria {
-  id?: number;
-  nombre: string;
-  descripcion?: string;
-  createdAt?: string;
-  updatedAt?: string;
-}
+import { ICategoria } from '../interfaces'; // o el path correcto
 
 @Injectable({
   providedIn: 'root'
